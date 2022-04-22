@@ -424,7 +424,8 @@ namespace Lightmass
 		}
 
 		// Write out compressed data if supported
-		Swarm->Write(LightingData.LightMapData->GetCompressedData(), LightingData.LightMapData->CompressedDataSize ? LightingData.LightMapData->CompressedDataSize : LightingData.LightMapData->UncompressedDataSize);
+		//Swarm->Write(LightingData.LightMapData->GetCompressedData(), LightingData.LightMapData->CompressedDataSize ? LightingData.LightMapData->CompressedDataSize : LightingData.LightMapData->UncompressedDataSize);
+		Swarm->Write((uint8*)LightingData.LightMapData->GetQuantizedData(), LightingData.LightMapData->UncompressedDataSize);
 
 		// The resulting light GUID --> shadow map data
 		int32 ShadowIndex = 0;
@@ -441,7 +442,8 @@ namespace Lightmass
 			Swarm->Write((FSignedDistanceFieldShadowMapData2DData*)OutData, sizeof(FSignedDistanceFieldShadowMapData2DData));
 
 			// Write out compressed data if supported
-			Swarm->Write(OutData->GetCompressedData(), OutData->CompressedDataSize ? OutData->CompressedDataSize : OutData->UncompressedDataSize);
+			//Swarm->Write(OutData->GetCompressedData(), OutData->CompressedDataSize ? OutData->CompressedDataSize : OutData->UncompressedDataSize);
+			Swarm->Write((uint8*)OutData->GetQuantizedData(), OutData->UncompressedDataSize);
 		}
 
 		WriteDebugLightingOutput(LightingData.DebugOutput);

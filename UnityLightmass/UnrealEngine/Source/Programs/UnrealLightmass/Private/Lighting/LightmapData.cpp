@@ -59,7 +59,7 @@ namespace Lightmass
 		CompressData((uint8*)QuantizedData.GetData(), UncompressedDataSize, CompressedData, CompressedDataSize);
 
 		// we no longer need the source data now that we're compressed
-		QuantizedData.Empty();
+		//QuantizedData.Empty();
 	}
 
 	static void GetLUVW( const float RGB[3], float& L, float& U, float& V, float& W )
@@ -423,7 +423,7 @@ namespace Lightmass
 		CompressData((uint8*)QuantizedData.GetData(), UncompressedDataSize, CompressedData, CompressedDataSize);
 
 		// Discard the source data now that we're compressed
-		QuantizedData.Empty();
+		//QuantizedData.Empty();
 	}
 
 } //namespace Lightmass
